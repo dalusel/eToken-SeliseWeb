@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  StartDate: 2017-05-11
+  EndDate: 2017-05-11
+  TotalToken: 1
+  Places: one
+  InstitutionTypes: one
+
+two:
+  StartDate: 2017-05-11
+  EndDate: 2017-05-11
+  TotalToken: 1
+  Places: two
+  InstitutionTypes: two

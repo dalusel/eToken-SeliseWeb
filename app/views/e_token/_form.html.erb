@@ -1,0 +1,112 @@
+<div align="center">
+  <!-- Display all the error Messages -->
+  <%= form_for @etokendetail, :url => url_for(:controller => 'e_token', :action => 'create') do |f| %>
+      <table>
+        <tr>
+          <td>
+            <ul>
+              <%-  @etokendetail.errors.full_messages.each do |msg| %>
+                  <li class ="errorMsg" align="left"><p class="my_Error"><%= msg %></p> </li>
+              <%- end %>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <table border="0">
+        <!-- region for Institution dropdown-->
+        <tr height="50px">
+          <td align="right">
+              <%= text_field_tag :id, @etokendetail.id, {:id =>"my_EID" ,class: "my_EID", style:"display: none;"} %>
+              <%= f.label "Category" %>
+          </td>
+          <td align="left">
+              <%= f.collection_select :Institutions_id, Institution.order(:InstitutionName), :id,:InstitutionName,{},{class: 'my_Institution'}%>
+          </td>
+        </tr>
+
+        <!-- region for InstitutionType dropdown-->
+        <tr height="40px">
+          <td align="right">
+              <%= f.label "Category Type" %>
+          </td>
+          <td align="left">
+              <%= f.grouped_collection_select :InstitutionType_id, Institution.order(:InstitutionName), :InstitutionType,:InstitutionName, :id,:InstitutionTypeName,{},{class: 'my_InstitutionType'}%>
+          </td>
+        </tr>
+
+        <!-- region for Place dropdown-->
+        <tr height="40px">
+          <td align="right">
+              <%= f.label "Place" %>
+          </td>
+          <td align="left">
+              <%= f.grouped_collection_select :Places_id, InstitutionType.order(:InstitutionTypeName), :Place,:InstitutionTypeName, :id,:PlaceName,{},{class: 'my_Place'}%>
+          </td>
+        </tr>
+
+        <!-- region for Search Token button-->
+        <tr height="40px">
+          <td align="right">
+              <%= f.label "Request Date" %>
+          </td>
+          <td align="left">
+               <%= f.text_field :RequestDate, class:'my_RequestDate'%>
+               <%= submit_tag "Search",class:"my_Search" , name: 'SearchToken'%>
+          </td>
+        </tr>
+
+        <!-- region for Token Detail-->
+        <tr>
+          <td colspan="2">
+            <div class="my_Display">
+              <%= render partial: "availableToken", etokendetail: @etokendetail%>
+            </div>
+          </td>
+        </tr>
+
+       <!-- region for Name -->
+        <tr height="40px">
+          <td align="right">
+              <%= f.label "Your Name" %>
+          </td>
+          <td align="left">
+              <%= f.text_field :Name, class:"my_Name"%>
+          </td>
+        </tr>
+
+        <!-- region for PhoneNo -->
+        <tr height="40px">
+          <td align="right">
+              <%= f.label "Phone No" %>
+          </td>
+          <td align="left">
+              <%= f.text_field :PhoneNo,class:"my_PhoneNo"%>
+          </td>
+        </tr>
+
+        <!-- region for Request and Cancel Token buttons -->
+        <tr height="40px">
+          <td></td>
+          <td align="left">
+             <%= submit_tag "Request Token",class:"my_RequestToken", name: 'CreateToken' %>
+             <%= submit_tag "Cancel Token",class:"my_CancelToken", name: 'CancelToken' %>
+          </td>
+        </tr>
+
+        <!-- region for Request New Token Link -->
+        <tr height="40px">
+          <td></td>
+          <td align="left">
+              <div class ="my_CreateNew">
+                <%= link_to '|Request New Token|', e_token_new_path %>                    
+              </div>
+          </td>
+        </tr>
+     </table>
+  <% end%>
+</div>
+
+
+
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  RequestDate: 2017-05-11
+  Name: MyString
+  PhoneNo: 1
+  TokenNo: 1
+  Places: one
+  Institutions: one
+  InstitutionTypes: one
+
+two:
+  RequestDate: 2017-05-11
+  Name: MyString
+  PhoneNo: 1
+  TokenNo: 1
+  Places: two
+  Institutions: two
+  InstitutionTypes: two

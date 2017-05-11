@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EToken</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
+  </head>
+
+  <body data-turbolinks="false">
+  <br>
+  <div align="center"><b>e-Token for Bank and Hospital</b></div>
+    <%= yield %>
+  </body>
+</html>
